@@ -1,2 +1,8 @@
 *.csv
+
 .DS_Store
+/checkpoints
+
+/shap_explanations_test
+
+/shap_explanations
