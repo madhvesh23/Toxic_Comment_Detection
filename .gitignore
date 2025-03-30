@@ -1,6 +1,8 @@
 /.DS_Store
 /test_labels.csv
 
+final_replacement_dict.json
+
 /checkpoints
 
 /shap_explanations_test
