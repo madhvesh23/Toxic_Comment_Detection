@@ -1,0 +1,3 @@
+ "gay", "stupid", "trash", "dumb", "jerk", "crazy", "ugly", "freak", "lame", "weird",
+    "loser", "fool", "idiot", "silly", "insane", "bitch", "hell", "nuts", "screw", "moron",
+    "psycho", "sick", "lazy", "kill", "pathetic", "shut up", "mad", "gross", "pain", "toxic"
