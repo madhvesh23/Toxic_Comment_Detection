@@ -1,4 +1,4 @@
-# ✅ app.py
+# app.py
 import streamlit as st
 from utils import predict_and_explain
 import shap
@@ -35,11 +35,11 @@ if st.button("Analyze"):
             st.markdown("### Top Contributing Tokens")
             st.table(result['top_contributors'])
 
-            # SHAP Visualization
-            st.markdown("### SHAP Explanation")
-            shap.plots.text(result['shap'], display=False)
-            st.pyplot(plt.gcf())
-            plt.clf()
+            # # SHAP Visualization
+            # st.markdown("### SHAP Explanation")
+            # shap.plots.text(result['shap'], display=False)
+            # st.pyplot(plt.gcf())
+            # plt.clf()
 
         except Exception as e:
             st.error(f"Error: {e}")

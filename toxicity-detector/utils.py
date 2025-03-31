@@ -30,11 +30,14 @@ explainer_adv = shap.Explainer(pipeline_adv)
 
 def sanitize_text(user_input):
     if not isinstance(user_input, str):
-        raise ValueError("❌ Invalid input: expected a string.")
+        raise ValueError(" Invalid input: expected a string.")
     cleaned = user_input.strip()
     if len(cleaned) == 0:
-        raise ValueError("❌ Empty input after cleaning.")
-    return cleaned
+        raise ValueError(" Empty input after cleaning.")
+    
+    #  Apply normalization for adversarial text
+    normalized = normalize_obfuscated_text(cleaned)
+    return normalized
 
 def contains_ambiguous(text):
     lowered = text.lower()
@@ -88,3 +91,13 @@ def predict_and_explain(user_input):
         "adversarial_flag": adversarial_flag,
         "top_contributors": top_tokens
     }
+
+
+
+import unicodedata
+
+def normalize_obfuscated_text(text):
+    """
+    Normalize stylized unicode characters to ASCII equivalent.
+    """
+    return unicodedata.normalize('NFKD', text).encode('ASCII', 'ignore').decode('utf-8')
