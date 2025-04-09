@@ -63,3 +63,7 @@ conda activate toxicenv
 
 # Install dependencies
 pip install -r requirements.txt
+
+# Running the app
+# Start Streamlit app
+streamlit run app.py
