@@ -1,25 +1,65 @@
-## This is Machine Learning Project
+# Toxic Comment Detection with BERT + SHAP + Adversarial Robustness
 
-## Title: Multi-task Learning for Toxic Comment Classification and Rationale Extraction
+![Python](https://img.shields.io/badge/python-3.9+-blue)
+![Streamlit](https://img.shields.io/badge/Streamlit-💬-brightgreen)
+![BERT](https://img.shields.io/badge/BERT-transformers-yellow)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
+A powerful and explainable toxic comment classification system built using:
+- **BERT** for deep contextual understanding of text
+- **SHAP** for interpretability and explanation visualization
+- **Adversarial Training + False Positive Filtering** for robustness
 
+> ✨ Supports real-time inference via Streamlit web app.
 
-Why We Use F1-Score to Evaluate Toxic Comment Detection
-In toxic comment classification, we’re dealing with an imbalanced and sensitive problem, where:
-	•	Many more comments are non-toxic (label = 0) than toxic (label = 1)
-	•	Making mistakes — especially false positives (flagging a non-toxic comment as toxic) — has real-world impact on user experience and trust
+---
 
-we have to look at predictions for which model predicted correctly for toxicity as non-toxicity & also where the model did't predicted correctly for toxicity & non-toxicity, thats why we used F1 
+## Table of Contents
 
+- [🚀 Features](#-features)
+- [🧪 Model Architecture](#-model-architecture)
+- [📦 Setup Instructions](#-setup-instructions)
+- [💻 Running the App](#-running-the-app)
+- [📊 Evaluation & Results](#-evaluation--results)
+- [🧠 SHAP Visualization](#-shap-visualization)
+- [📁 Project Structure](#-project-structure)
+- [📌 Future Work](#-future-work)
+- [🤝 Contributors](#-contributors)
 
+---
 
+## Features
 
+Fine-tuned BERT-based binary classifier  
+Real-time toxicity prediction with confidence score  
+SHAP explanations for interpretability  
+Ambiguous word & adversarial pattern detection  
+False Positive Filter with token-level logic  
+Dual-model routing (clean vs adversarial robust)  
+Streamlit UI for interactive demo
 
-Testing model on Test.csv
-What This Tells You:
-	•	The model generalizes well — it performs consistently across training, validation, and test sets.
-	•	It’s ready for real-world usage, or for further stages like:
-	•	Interpretability (SHAP/IG)
-	•	Adversarial robustness
-	•	False positive filtering
-	•	Demo app interface
+---
+
+## Model Architecture
+
+- Base Model: `bert-base-uncased`
+- Fine-tuned on toxic vs non-toxic comments
+- Adversarial fine-tuning: obfuscated inputs
+- False Positive Filtering Logic:
+  - 1 important token + confidence < 70% → `Needs Review`
+
+---
+
+## Setup Instructions
+
+```bash
+# Clone repository
+git clone https://github.com/madhvesh23/Toxic_Comment_Detection.git
+cd toxic-detector
+
+# Create virtual environment
+conda create -n toxicenv python=3.9
+conda activate toxicenv
+
+# Install dependencies
+pip install -r requirements.txt
